@@ -1,0 +1,31 @@
+html{
+    font-family: 'Times New Roman', Times, serif;
+}
+html, body{
+    height:100%;
+}
+.header{
+    background-color: aqua;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+}
+.header a{
+    padding: 20px;
+    font-size: 26px;
+}
+.main{
+    background-color: brown;
+    margin:0;
+    height:92vh;
+
+}
+.footer{
+    background-color:blueviolet;
+    height: 4vh;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
