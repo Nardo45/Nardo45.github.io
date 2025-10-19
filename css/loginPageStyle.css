@@ -1,0 +1,46 @@
+
+.logoArea{
+    background-color:aquamarine;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.logoArea img{
+    width: 50vw;
+
+}
+.loginArea{
+    /* background-color: blue; */
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.loginArea p{
+    font-size: 40px;
+    font-weight: bold;
+    color:white;
+
+}
+.userName{
+    display: flex;
+    align-items: center;
+}
+.userName input{
+    height: 40px;
+}
+.passWord{
+    display: flex;
+    align-items: center;
+}
+.passWord input {
+    height: 40px;
+}
+#loginButton{
+width: 300px;
+height:40px;
+}
+#signUpButton{
+width: 300px;
+height: 40px;
+}
