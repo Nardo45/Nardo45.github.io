@@ -1,0 +1,200 @@
+diff --git a/.gitignore b/.gitignore
+index 949dda3..8db430c 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -2,4 +2,5 @@
+ .zip
+ .bmpr
+ .docx
+-.pptx
+\ No newline at end of file
++.pptx
++node_modules/
+\ No newline at end of file
+diff --git a/Material/Style Guide.docx b/Material/Style Guide.docx
+deleted file mode 100644
+index c43520d..0000000
+Binary files a/Material/Style Guide.docx and /dev/null differ
+diff --git a/Material/Style Guide.pptx b/Material/Style Guide.pptx
+deleted file mode 100644
+index c0f2ddc..0000000
+Binary files a/Material/Style Guide.pptx and /dev/null differ
+diff --git a/Material/Syntax Studio.bmpr b/Material/Syntax Studio.bmpr
+deleted file mode 100644
+index 6f20734..0000000
+Binary files a/Material/Syntax Studio.bmpr and /dev/null differ
+diff --git a/Material/~$yle Guide.docx b/Material/~$yle Guide.docx
+deleted file mode 100644
+index f02c3aa..0000000
+Binary files a/Material/~$yle Guide.docx and /dev/null differ
+diff --git a/css/loginPageStyle.css b/css/loginPageStyle.css
+deleted file mode 100644
+index 1d950c9..0000000
+--- a/css/loginPageStyle.css
++++ /dev/null
+@@ -1,46 +0,0 @@
+-
+-.logoArea{
+-    background-color:aquamarine;
+-    padding-bottom: 0px;
+-    margin-bottom: 0px;
+-}
+-.logoArea img{
+-    width: 50vw;
+-
+-}
+-.loginArea{
+-    /* background-color: blue; */
+-    width: 50vw;
+-    display: flex;
+-    flex-direction: column;
+-    align-items: center;
+-    
+-}
+-.loginArea p{
+-    font-size: 40px;
+-    font-weight: bold;
+-    color:white;
+-
+-}
+-.userName{
+-    display: flex;
+-    align-items: center;
+-}
+-.userName input{
+-    height: 40px;
+-}
+-.passWord{
+-    display: flex;
+-    align-items: center;
+-}
+-.passWord input {
+-    height: 40px;
+-}
+-#loginButton{
+-width: 300px;
+-height:40px;
+-}
+-#signUpButton{
+-width: 300px;
+-height: 40px;
+-}
+diff --git a/example/Home page example.png b/example/Home page example.png
+deleted file mode 100644
+index 66f0b85..0000000
+Binary files a/example/Home page example.png and /dev/null differ
+diff --git a/example/Main page example.png b/example/Main page example.png
+deleted file mode 100644
+index 237cda5..0000000
+Binary files a/example/Main page example.png and /dev/null differ
+diff --git a/followPage.html b/followPage.html
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/homePage.html b/homePage.html
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/img/Syntax Studio Favicon.jpg b/img/Syntax Studio Favicon.jpg
+deleted file mode 100644
+index 112de49..0000000
+Binary files a/img/Syntax Studio Favicon.jpg and /dev/null differ
+diff --git a/img/Syntax Studio Image Photo.jpg b/img/Syntax Studio Image Photo.jpg
+deleted file mode 100644
+index c47cd28..0000000
+Binary files a/img/Syntax Studio Image Photo.jpg and /dev/null differ
+diff --git a/loginPage.html b/loginPage.html
+deleted file mode 100644
+index 78e4502..0000000
+--- a/loginPage.html
++++ /dev/null
+@@ -1,44 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en"> 
+-<head>
+-    <link rel="stylesheet" href="/css/normalize.css">
+-    <link rel="stylesheet" href="/css/global.css">
+-    <link rel="stylesheet" href="/css/loginPageStyle.css">
+-    <title>Syntax Studio Login Page</title>
+-    <link rel="icon" type="image/x-icon" href="/img/Syntax Studio Favicon.jpg">
+-</head>
+-<body>
+-    <div class="header">
+-        <header>
+-            <a href="/loginPage.html">Home</a>
+-            <a href="/recommendPage.html">Recommend</a>
+-            <a href="/followPage.html">Followed</a>
+-            <a href="#">Search</a>
+-            <a href="#">Personal page</a>
+-        </header>
+-    </div>
+-    <div class="main">
+-        <div class="logoArea">
+-            <img src="/img/Syntax Studio Image Photo.jpg" alt="SyntaxStudio image">
+-        </div>
+-        <div class="loginArea">
+-            <div class="userName">
+-                <p>Username: </p>
+-                <input type="text">
+-            </div>
+-            <div class="passWord">
+-                <p>Password: </p>
+-                <input type="password">
+-            </div>
+-            
+-            <input type="button" value="Login" id="loginButton">
+-            <input type="button" value="Sign Up" id="signUpButton">
+-        </div>
+-
+-    </div>
+-
+-    <footer class="footer">
+-        <p>Copyright&nbsp;&copy;&nbsp;Syntax Studio 2025</p>
+-    </footer>
+-</body>
+-</htem>
+\ No newline at end of file
+diff --git a/messagePage.html b/messagePage.html
+deleted file mode 100644
+index e8ab4cb..0000000
+--- a/messagePage.html
++++ /dev/null
+@@ -1,27 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en"> 
+-<head>
+-    <link rel="stylesheet" href="/css/normalize.css">
+-    <link rel="stylesheet" href="/css/loginPageStyle.css">
+-    <title>Syntax Studio Login Page</title>
+-    <link rel="icon" type="image/x-icon" href="/img/Syntax Studio Favicon.jpg">
+-</head>
+-<body>
+-    <div class="header">
+-        <header>
+-            <a href="/loginPage.html">Home</a>
+-            <a href="/recommendPage.html">Recommend</a>
+-            <a href="/followPage.html">Followed</a>
+-            <a href="#">Search</a>
+-            <a href="#">Personal page</a>
+-        </header>
+-    </div>
+-    <div class="main">
+-
+-    </div>
+-
+-    <footer class="footer">
+-        <p>Copyright&nbsp;&copy;&nbsp;Syntax Studio 2025</p>
+-    </footer>
+-</body>
+-</htem>
+\ No newline at end of file
+diff --git a/noticePage.html b/noticePage.html
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/recommendPage.html b/recommendPage.html
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/registerPage.html b/registerPage.html
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/settingPage.html b/settingPage.html
+deleted file mode 100644
+index e69de29..0000000
