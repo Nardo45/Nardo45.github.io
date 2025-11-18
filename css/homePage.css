@@ -1,0 +1,15 @@
+.left{
+    background-color: white;
+    width: 200px;
+    height: 200px;
+}
+.center{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+}
+.right{
+    background-color: burlywood;
+    width: 200px;
+    height: 200px;
+}
