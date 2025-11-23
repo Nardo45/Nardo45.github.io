@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="/css/homePage.css">
     <script src="./script/global.js" defer></script>
     <script src="./script/homePage.js" defer></script>
+    
 
-    <title>Syntax Studio Login Page</title>
+    <title>Syntax Studio Home Page</title>
     <link rel="icon" type="image/x-icon" href="/img/Syntax Studio Favicon.jpg">
 </head>
 <body>
@@ -16,26 +17,32 @@
                <source srcset="./img//icon/050-menu.png" media="(max-width: 810px)">
                <img src="" alt="menuImg" id="menuImg">
         </picture>
-       <a class="largeWindow" href="/loginPage.html">Home</a>
+       <a class="largeWindow" href="/homePage.html">Home</a>
        <a class="largeWindow" href="/recommendPage.html">Recommend</a>
        <a class="largeWindow" href="/followPage.html">Followed</a>
-       <a class="largeWindow" href="#">Search</a>
-       <a class="largeWindow" href="#">Personal page</a>
+       <a class="largeWindow" href="/loginPage.html">Log out</a>
+       <a class="largeWindow" id="search" href="#">Search</a>
+       <form id="searchArea" class="searchArea" action="">
+        <input id="searchInput" type="text" placeholder="Search...">
+        <button id="searchBtn" type="submit">
+            <img  src="./img/icon/008-search.png" alt="">
+        </button>
+       </form>
+
        <div class="popUpMenu" id="popUpMenu">
            <div class="smallWindowContainer">
                <a class="smallWindow" href="/loginPage.html">Home</a>
                <a class="smallWindow" href="/recommendPage.html">Recommend</a>
                <a class="smallWindow" href="/followPage.html">Followed</a>
-               <a class="smallWindow" href="#">Search</a>
-               <a class="smallWindow" href="#">Personal page</a>
+               <a class="smallWindow" id="search" href="#">Search</a>
            </div>
        </div>
     </div>
     <div class="main">
         <div class="left">
-            <a class="leftBar" href="">Notice</a>
-            <a class="leftBar" href="">Message</a>
-            <a class="leftBar" href="">Setting</a>
+            <a class="leftBar" href="./noticePage.html">Notice</a>
+            <a class="leftBar" href="./messagePage.html">Message</a>
+            <a class="leftBar" href="./settingPage.html">Setting</a>
             <div class="leftUserArea">
                 <img src="./img/user.png" alt="userIcon" id="userIcon">
                 <p id="userName">User name</p>
@@ -59,7 +66,18 @@
                 </div>
             </div>
         </div>
-        <div class="right"></div>
+        <div class="right">
+            <div class="rightTitle">
+                <p>Recommended Follow</p>
+            </div>
+            <div class="followArea">
+                <img id="followAreaImg" src="./img/user.png" alt="">
+                <p id="followAreaUserId">User ID</p>
+                <button id="followAreaBtn">
+                    Follow
+                </button>
+            </div>
+        </div>
     </div>
 
     <footer class="footer">

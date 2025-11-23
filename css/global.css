@@ -11,6 +11,8 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 10;
 }
 .largeWindow{
     padding: 20px;
@@ -18,6 +20,37 @@ html, body{
     color:white;
     text-decoration: none;
     transition: 0.3s;
+    background-color: #0A1A2A;
+}
+
+.searchArea{
+    display: flex;
+    position: absolute;
+    transform: translateX(50%);
+    transition-duration: 1s;
+    z-index: -1;
+}
+.searchArea.active {
+    display: flex;
+    transition-duration: 1s;
+    transform: translateX(170%); 
+}
+#searchInput{
+    font-size: 24px;
+    border-radius: 30px;
+}
+#searchInput::placeholder{
+    text-align: center;
+}
+#searchBtn{
+    height: 32px;
+    background-color: #0A1A2A;
+    margin-left: 5px;
+    border-radius: 30px;
+}
+#searchBtn img{
+    width: 30px;
+    height: 30px;
 }
 #menuImg{
     display: none;

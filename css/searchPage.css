@@ -1,4 +1,4 @@
-.left{
+.left {
     width: 600px;
     height: 85vh;
     border-right: 1px solid white;
@@ -7,9 +7,10 @@
     flex-direction: column;
     align-items: center;
 }
-.leftBar{
+
+.leftBar {
     width: 500px;
-    color:white;
+    color: white;
     text-align: center;
     font-size: 26px;
     text-decoration: none;
@@ -17,124 +18,91 @@
     border-radius: 10px;
     transition: 0.3s;
 }
+
 .leftBar:hover {
     background-color: orange;
-    color:black;
+    color: black;
 }
-.leftUserArea{
+
+.leftUserArea {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: auto;
 }
-#userIcon{
+
+#userIcon {
     width: 300px;
     height: 300px;
     border-radius: 50%;
 }
-#userName{
+
+#userName {
     font-size: 26px;
     color: white;
     text-align: center;
 }
-.center{
+
+.center {
     width: 1200px;
     height: 85vh;
     margin: 0px 40px 0px 40px;
     border-left: 1px solid white;
     border-right: 1px solid white;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
-.content{
+
+#followList {
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content {
     width: 900px;
-    height:auto;
+    height: auto;
     margin-top: 20px;
 }
-.contentUserInfo{
+.contentUserInfo {
     /* border: 1px solid white; */
     display: flex;
     align-items: center;
+    justify-content: center;
 
 }
-#contentUserImg{
+#contentUserImg {
     width: 80px;
     height: 80px;
     border-radius: 50%;
 }
-#contentUserName{
+
+#contentUserName {
     font-size: 24px;
-    color:white;
+    color: white;
 }
-.contentArea{
+
+.contentArea {
     margin-left: 40px;
     margin-right: 40px;
     border-bottom: 1px solid lightgray;
 }
-#userPost{
+
+#recentPost {
+    font-size: 26px;
+    color: white;
+}
+
+#userPost {
     font-size: 24px;
     color: white;
 }
-.interactArea{
-    width: 800px;
-    height: 50px;
-    margin-top: 20px;
-}
-.likeArea{
 
-}
-.likeBtn{
-    width: 50px;
-    height: 50px;
-    fill: transparent;
-    stroke: white;
-    stroke-width: 1px;
-    cursor: pointer;
-    margin-left: 40px;
-}
-.likeBtn:hover{
-    stroke:red;
-}
-.likeBtn.active{
-    fill:red;
-    stroke: red;
-}
-
-.right{
+.right {
     width: 600px;
     height: 85vh;
     border-left: 1px solid white;
     margin-right: 40px;
 
-}
-.rightTitle{
-    font-size: 26px;
-    color: white;
-    text-align: center;
-}
-.followArea{
-    display: flex;
-    align-items: center;
-    justify-content:space-evenly
-}
-#followAreaImg{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
-#followAreaUserId{
-    font-size: 26px;
-    color: white;
-}
-#followAreaBtn{
-    width: 120px;
-    height: 50px;
-    font-size: 26px;
-    /* color: white; */
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-#followAreaBtn:active {
-    box-shadow: 0 5px #666;
-    transform: translateY(4px); 
 }
