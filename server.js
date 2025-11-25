@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
     if (isAuthenticated) {
         // If logged in, send them to the main application page
-        // Note: Use path.join to ensure paths work correctly across operating systems
+        // path.join to ensures paths work correctly across operating systems
         res.sendFile(path.join(__dirname, 'pages', 'homePage.html'));
     } else {
         // If not logged in, send them to the login page
