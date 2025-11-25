@@ -1,0 +1,67 @@
+.main{
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.main form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.main input{
+    font-size: 24px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    margin-left: 12px;
+    height: 40px;
+    width:300px;
+   transition: 0.2s;
+}
+.main div{
+    margin-bottom: 30px;
+}
+.main input:hover{
+    background-color: lightgray;
+}
+#registerName{
+    display: flex;
+}
+#registerName p{
+    margin: 0;
+}
+#registerEmail{
+    display: flex;
+    margin-left: 63.5px;
+}
+#registerEmail p{
+    margin: 0;
+}
+#registerPassword{
+    display: flex;
+    margin-left: 10.1px;
+}
+#registerPassword p{
+    margin: 0;
+}
+#registerPasswordAgain{
+    margin-left: 141.6px;
+}
+#registerBirthday{
+    display: flex;
+    margin-left: 30px;
+}
+#registerBirthday p{
+    margin: 0;
+}
+#registerBtn{
+    width:460.58px;
+    height: 45px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+#registerBtn:hover{
+    background-color: lightgrey;
+}

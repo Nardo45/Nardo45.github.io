@@ -17,30 +17,73 @@
     
 }
 .loginArea p{
-    font-size: 40px;
+    font-size: 26px;
     font-weight: bold;
     color:white;
 
+}   
+@media (max-width: 810px){
+    .main{
+        justify-content: center;
+    }
+    .logoArea{
+        display: none;
+    }
 }
 .userName{
     display: flex;
     align-items: center;
 }
-.userName input{
-    height: 40px;
-}
+
 .passWord{
+
     display: flex;
     align-items: center;
+    margin-bottom: 16px;
 }
-.passWord input {
+#userNameInput{
+    font-size: 24px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    margin-left: 12px;
     height: 40px;
+    transition: 0.2s;
 }
+#userNameInput:hover{
+    background-color: lightgray;
+}
+#passwordInput{
+    font-size: 24px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    margin-left: 12px;
+    height: 40px;
+    transition: 0.2s;
+}
+#passwordInput:hover{
+    background-color: lightgray;
+}
+
 #loginButton{
-width: 300px;
-height:40px;
+    width: 403px;
+    height:45px;
+    font-size: 22px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    transition: 0.2s;
+}
+#loginButton:hover{
+    background-color: lightgray;
 }
 #signUpButton{
-width: 300px;
-height: 40px;
+    width: 403px;
+    height: 45px;
+    font-size: 22px;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: 0.2s
+}
+#signUpButton:hover{
+    background-color:lightgray;
 }
