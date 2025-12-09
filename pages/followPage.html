@@ -1,51 +1,81 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/followPage.css">
-    <title>Syntax Studio Follow Page</title>
-    <link rel="icon" type="image/x-icon" href="../img/Syntax Studio Favicon.jpg">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/followPage.css">
+  <title>Syntax Studio — Following</title>
+  <link rel="icon" type="image/x-icon" href="/img/syntax-studio-favicon.jpg">
 </head>
 <body>
-    <div class="header">
-        <header>
-            <a class="largeWindow" href="homePage.html">Home</a>
-            <a class="largeWindow" href="recommendPage.html">Recommend</a>
-            <a class="largeWindow" href="followPage.html">Followed</a>
-            <a class="largeWindow" href="loginPage.html">Log out</a>
-            <a class="largeWindow" id="search" href="#">Search</a>
-        </header>
-    </div>
-    <div class="main">
-        <div class="left">
-            <a class="leftBar" href="noticePage.html">Notice</a>
-            <a class="leftBar" href="messagePage.html">Message</a>
-            <a class="leftBar" href="settingPage.html">Setting</a>
-            <div class="leftUserArea">
-                <img src="../img/user.png" alt="userIcon" id="userIcon">
-                <p id="userName">User name</p>
-            </div>
-        </div>
-        <div class="center">
-            <p id="followList">Followed List</p>
-            <div class="content">
-                <div class="contentUserInfo">
-                    <img id="contentUserImg" src="../img/user.png" alt="">
-                    <p id="contentUserName" >User name  </p>
-                </div>
-                <div class="contentArea">
-                    <p id="recentPost">Recent Post:</p>
-                    <p id="userPost">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit maiores facere nostrum. Nam unde est quod ipsam corporis quo, doloremque repudiandae minima libero harum sapiente fugit deleniti at nulla impedit.</p>
-                </div>
-            </div>
-        </div>
-        <div class="right">
-        </div>
-    </div>
+  <div class="header">
+    <a class="largeWindow" href="/home">Home</a>
+    <a class="largeWindow" href="/recommend">Recommend</a>
+    <a class="largeWindow" href="/follow">Followed</a>
+    <a class="largeWindow" href="/login">Log out</a>
+    <a class="largeWindow" id="search" href="#">Search</a>
+  </div>
 
-    <footer class="footer">
-        <p>Copyright&nbsp;&copy;&nbsp;Syntax Studio 2025</p>
-    </footer>
+  <main class="main">
+    <aside class="left">
+      <a class="leftBar" href="/notice">Notice</a>
+      <a class="leftBar" href="/message">Message</a>
+      <a class="leftBar" href="/setting">Setting</a>
+
+      <div class="leftUserArea">
+        <img src="/img/user.png" alt="User avatar" id="userIcon">
+        <p id="userName">Your name</p>
+      </div>
+    </aside>
+
+    <section class="center">
+      <h2 id="followList" class="sectionTitle">Followed List</h2>
+
+      <!-- Example followed user card; repeat / render with JS for actual data -->
+      <div class="content">
+        <div class="followedCard">
+          <div class="contentUserInfo">
+            <img id="contentUserImg" src="/img/user.png" alt="Followed user">
+            <div class="profileMeta">
+              <div id="contentUserName" class="name">Followed User</div>
+              <div class="small muted">@followed_user</div>
+            </div>
+            <button class="secondary unfollowBtn">Unfollow</button>
+          </div>
+
+          <div class="contentArea">
+            <div id="recentPost" class="muted small">Recent Post</div>
+            <p id="userPost">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit maiores facere nostrum...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- empty state -->
+      <div id="emptyState" class="content" style="display: none;">
+        <p class="small muted">You are not following anyone yet. Try following some people from Recommend.</p>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="rightCard">
+        <h4>People to follow</h4>
+        <p class="small muted">Suggestions based on your interests</p>
+        <div class="suggestion">
+          <img src="/img/user.png" alt="">
+          <div class="suggestionMeta">
+            <div class="name">Suggested User</div>
+            <div class="small muted">@suggested</div>
+          </div>
+          <button class="secondary">Follow</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <p>Copyright&nbsp;&copy;&nbsp;Syntax Studio 2025</p>
+  </footer>
 </body>
-</htem>
+</html>

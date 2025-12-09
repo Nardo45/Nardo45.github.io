@@ -1,67 +1,134 @@
-.main{
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+:root{
+    /* keep same palette as login page for a consistent theme */
+    --bg: #eef6ff;
+    --card: #ffffff;
+    --muted: #6b7280;
+    --accent: #2563eb;
+    --accent-dark: #1e40af;
+    --accent-soft: #bfdbfe;
+    --pill-radius: 10px;
 }
-.main form{
+
+html,body{
+    height: 100%;
+    margin: 0;
+    font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: #0f172a;
+}
+
+/* main centers the card */
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 16px;
+}
+
+/* card */
+.registerCard{
+    width: 403px;
+    background: var(--card);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(28, 50, 112, 0.06);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 12px;
+    box-sizing: border-box;
 }
-.main input{
-    font-size: 24px;
-    border: 2px solid #555;
-    border-radius: 10px;
-    margin-left: 12px;
-    height: 40px;
-    width:300px;
-   transition: 0.2s;
+
+.cardTitle{
+    margin: 0 0 2px 0;
+    font-size: 20px;
+    color: #0b1220;
 }
-.main div{
-    margin-bottom: 30px;
-}
-.main input:hover{
-    background-color: lightgray;
-}
-#registerName{
+
+/* each row: label + input */
+.formRow{
     display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
 }
-#registerName p{
-    margin: 0;
+
+.formRow label{
+    width: 34%;
+    font-weight: 600;
+    font-size: 14px;
+    color: #0f172a;
 }
-#registerEmail{
-    display: flex;
-    margin-left: 63.5px;
+
+.formRow input{
+    width: 66%;
+    font-size: 15px;
+    padding: 10px 12px;
+    border: 1px solid #e6e9ee;
+    border-radius: 8px;
+    background: #fff;
+    transition: box-shadow .12s ease, border-color .12s ease, background .12s ease;
+    outline: none;
+    box-sizing: border-box;
 }
-#registerEmail p{
-    margin: 0;
+
+.formRow input:focus{
+    border-color: var(--accent-soft);
+    box-shadow: 0 6px 18px rgba(37,99,235,0.06);
 }
-#registerPassword{
-    display: flex;
-    margin-left: 10.1px;
-}
-#registerPassword p{
-    margin: 0;
-}
-#registerPasswordAgain{
-    margin-left: 141.6px;
-}
-#registerBirthday{
-    display: flex;
-    margin-left: 30px;
-}
-#registerBirthday p{
-    margin: 0;
-}
+
+/* register button — filled primary */
 #registerBtn{
-    width:460.58px;
-    height: 45px;
-    border: 2px solid #555;
-    border-radius: 10px;
-    margin-top: 30px;
+    width: 100%;
+    height: 46px;
+    font-size: 18px;
+    border: none;
+    border-radius: var(--pill-radius);
+    background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: transform .08s ease, filter .12s ease;
+    box-shadow: 0 6px 18px rgba(37,99,235,0.14);
 }
+
 #registerBtn:hover{
-    background-color: lightgrey;
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+}
+
+/* small helper text */
+.small{
+    margin: 8px 0 0 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* footer */
+.footer{
+    text-align: center;
+    padding: 18px 8px;
+    color: var(--muted);
+}
+
+/* responsive */
+@media (max-width: 540px) {
+    .registerCard {
+        width: 95%;
+        padding: 18px;
+    }
+
+    .formRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .formRow label{
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    .formRow input{
+        width: 100%;
+    }
 }

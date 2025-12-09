@@ -1,68 +1,133 @@
-html{
-    font-family:Arial, Helvetica, sans-serif
+/* css/global.css — lighter, high-contrast theme; preserves original layout & mobile behavior */
+
+/* small reset & nicer font stack */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  font-family: Inter, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
 }
-html, body{
-    height:100%;
+html, body {
+  height: 100%;
+  margin: 0;
+  color: #0b1220;
+  background: #f1f5f9; /* light neutral background for better readability */
 }
 
+/* Header — light background so nav links are always readable */
 .header{
-    background-color: #0A1A2A;
-    height: 4vh;
+    background-color: #ffffff; /* white header */
+    border-bottom: 1px solid rgba(11,17,32,0.06);
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 10;
-}
-.largeWindow{
-    padding: 20px;
-    font-size: 26px;
-    color:white;
-    text-decoration: none;
-    transition: 0.3s;
-    background-color: #0A1A2A;
+    padding: 0 14px;
 }
 
-.searchArea{
-    display: flex;
-    position: absolute;
-    transform: translateX(50%);
-    transition-duration: 1s;
-    z-index: -1;
+/* Primary nav links (desktop) — visible by default */
+.largeWindow{
+    padding: 12px 16px;
+    font-size: 18px;
+    color: #0b1220;            /* dark text so visible without hover */
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.06s ease;
+    background-color: transparent;
+    border-radius: 8px;
+    display: inline-block;
+    line-height: 1;
 }
-.searchArea.active {
-    display: flex;
-    transition-duration: 1s;
-    transform: translateX(170%); 
+.largeWindow:hover{
+    background-color: #ffb74d; /* pleasant warm hover */
+    color: #071220;
+    transform: translateY(-2px);
 }
-#searchInput{
-    font-size: 24px;
-    border-radius: 30px;
-}
-#searchInput::placeholder{
-    text-align: center;
-}
-#searchBtn{
-    height: 32px;
-    background-color: #0A1A2A;
-    margin-left: 5px;
-    border-radius: 30px;
-}
-#searchBtn img{
-    width: 30px;
-    height: 30px;
-}
+
+/* Keep header elements spaced like before */
+.header-left { display:flex; align-items:center; gap:12px; }
+.header-right { display:flex; align-items:center; gap:8px; position:relative; }
+
+/* Menu image for small screens (hidden on desktop) */
 #menuImg{
     display: none;
 }
+
+/* Search area centered (light theme variant) */
+.searchArea{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    opacity: 0;
+    pointer-events: none;
+    top: 50%;
+    transform-origin: top center;
+    transform: translate(-50%, -50%) scaleY(0.98);
+    z-index: 5;
+    background: white;
+    padding: 6px 8px;
+    border-radius: 999px;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(11,17,32,0.06);
+}
+.searchArea.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scaleY(1);
+}
+
+/* inputs inside search */
+#searchInput{
+    font-size: 16px;
+    border-radius: 999px;
+    padding: 8px 12px;
+    border: 1px solid #e6e9ee;
+    color: #0b1220;
+    width: 240px;
+    outline: none;
+    background: white;
+}
+#searchInput::placeholder{
+    color: #94a3b8;
+    text-align: left;
+}
+
+/* search button */
+#searchBtn{
+    height: 36px;
+    background-color: transparent;
+    margin-left: 8px;
+    border-radius: 999px;
+    border: 0;
+    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#searchBtn img{
+    width: 22px;
+    height: 22px;
+    display: block;
+    filter: none;
+}
+
+/* smallWindow (mobile menu) hidden by default */
 .smallWindow{
     display: none;
 }
+
+/* Responsive adjustments for small screens - preserve original behavior */
 @media (max-width: 810px) {
     .header {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        padding: 8px 12px;
     }
 
     .largeWindow {
@@ -71,16 +136,19 @@ html, body{
 
     #menuImg {
         display: block;
-        width: 50px;
+        width: 44px;
         height: auto;
-        margin-left: 20px;
-        padding: 10px;
+        margin-left: 4px;
+        padding: 8px;
         border-radius: 10px;
-        transition: 0.3s;
+        transition: background-color 0.18s ease, transform 0.08s ease;
+        cursor: pointer;
     }
     #menuImg:hover{
-    background-color: lightgray;
+        background-color: rgba(11,17,32,0.06);
+        transform: translateY(-2px);
     }
+
     .popUpMenu{
         visibility: hidden;
         border-radius: 10px;
@@ -88,43 +156,65 @@ html, body{
     }
     .smallWindowContainer{
         position: absolute;
-        top: -30px;
-        width:600px ;
+        top: -8px;
+        left: 8px;
+        width: 260px;
         background-color: #6C7A89;
         border-radius: 10px;
-
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     .smallWindow{
-        display: flex;
-        padding: 20px;
-        font-size: 26px;
+        display: block;
+        padding: 14px 16px;
+        font-size: 18px;
         text-decoration: none;
         color: white;
     }
-
 }
+
+/* Hover style for links preserved but lighter */
 .header a:hover{
-    background-color: orange;
-    color: black;
+    background-color: #ffb74d;
+    color: #071220;
     border-radius: 10px;
 }
+
+/* Main area — light background; keep layout responsibility to page CSS */
 .main{
-    background-color: #0A1A2A;
-    margin:0;
-    height:92vh;
+    background-color: #f1f5f9; /* match page background for consistency */
+    margin: 0;
+    min-height: calc(100vh - 140px);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 18px;
 }
+
+/* Footer — lighter and readable */
 .footer{
-    background-color:#6C7A89;
-    height: 4vh;
-    font-size: 26px;
+    background-color:#e2e8f0;
+    height: 56px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    color: #334155;
+    padding: 0 8px;
 }
 .footer p{
-    font-weight: bold;
+    font-weight: 600;
+    margin: 0;
 }
+
+/* small utility helpers (won't interfere with page-specific styles) */
+.hidden { display: none !important; }
+.centered { margin: 0 auto; text-align: center; }
+
+/* Ensure form controls are readable by default */
+input, textarea, select, button {
+  font-family: inherit;
+  color: #0b1220;
+  background: white;
+}
+
+/* End of global.css */

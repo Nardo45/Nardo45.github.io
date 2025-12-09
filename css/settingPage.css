@@ -1,162 +1,118 @@
+/* LEFT MENU */
 .left {
-    width: 600px;
-    height: 85vh;
-    border-right: 1px solid white;
-    margin-left: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
 }
 
 .leftBar {
-    width: 500px;
-    color: white;
-    text-align: center;
-    font-size: 26px;
-    text-decoration: none;
-    padding: 20px 0px 20px 0px;
-    border-radius: 10px;
-    transition: 0.3s;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 10px rgba(11,17,32,0.04);
+  color: #071220;
 }
-
 .leftBar:hover {
-    background-color: orange;
-    color: black;
+  background: #ffb74d;
+  color: #071220;
+  transform: translateY(-2px);
 }
 
-.leftUserArea {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: auto;
-}
-
-#userIcon {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-}
-
-#userName {
-    font-size: 26px;
-    color: white;
-    text-align: center;
-}
-
-.center {
-    width: 1200px;
-    height: 85vh;
-    margin: 0px 40px 0px 40px;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    /* display: flex;
-    justify-content: center; */
-}
-
-#followList {
-    font-size: 32px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-}
-
-.content {
-    width: 900px;
-    height: auto;
-    margin-top: 20px;
-}
-
-.contentUserInfo {
-    /* border: 1px solid white; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-#contentUserImg {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
-
-#contentUserName {
-    font-size: 24px;
-    color: white;
-}
-
-.contentArea {
-    margin-left: 40px;
-    margin-right: 40px;
-    border-bottom: 1px solid lightgray;
-}
-
-#recentPost {
-    font-size: 26px;
-    color: white;
-}
-
-#userPost {
-    font-size: 24px;
-    color: white;
-}
-
+/* RIGHT SETTINGS PANEL */
 .right {
-    width: 1800px;
-    height: 85vh;
-    border-left: 1px solid white;
-    margin-right: 40px;
-    margin-left: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+  flex: 1;
 }
-#userImg{
-width: 300px;
-height: 300px;
-border-radius: 50%;
-margin-top: 30px;
+
+#userImg {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+  box-shadow: 0 6px 18px rgba(11,17,32,0.06);
 }
-#userID
-{
-    font-size: 24px;
-    color: white;
+
+#userID {
+  font-size: 18px;
+  color: #071220;
 }
-#imgUpdateBtn{
-    height: 69px;
-    width: 475px;
-    font-size: 24px;
-    border-radius: 30px;
-    box-shadow: 0 4px #999;
+
+#imgUpdateBtn {
+  width: 240px;
+  height: 48px;
+  font-size: 16px;
+  border-radius: 30px;
+  margin-top: 12px;
+  cursor: pointer;
+  box-shadow: 0 3px #999;
 }
 #imgUpdateBtn:active {
-    box-shadow: 0 3px #666;
-    transform: translateY(4px);
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
-form{
-    color:white;
-    font-size: 24px;
-    margin-top: 50px;
+
+/* FORM */
+form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 16px;
+  color: #071220;
 }
-form input{
-    width: 300px;
-    height: 64px;
-    font-size: 24px;
-    border-radius: 30px;
+
+.formArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.formArea{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+
+form input {
+  flex: 1;
+  height: 40px;
+  border-radius: 20px;
+  padding: 8px 12px;
+  border: 1px solid #e6e9ee;
 }
-#updateBtn{
-    width: 475px;
-    height: 68px;
-    margin-top: 20px;
-    border-radius: 30px;
-    box-shadow: 0 4px #999;
+
+#updateBtn {
+  width: 100%;
+  height: 48px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(180deg,#2563eb,#1e40af);
+  color: white;
+  border: none;
 }
 #updateBtn:active {
-    box-shadow: 0 3px #666;
-    transform: translateY(4px);
+  transform: translateY(2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+  }
+  .left, .right {
+    width: 100%;
+    margin: 0;
+  }
+  form input {
+    width: 100%;
+  }
 }
