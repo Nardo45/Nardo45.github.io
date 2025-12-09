@@ -1,89 +1,194 @@
+:root{
+    /* New color palette — blue-centric, high contrast */
+    --bg: #eef6ff;         /* page background: very light blue */
+    --card: #ffffff;       /* card background */
+    --muted: #6b7280;      /* muted text */
+    --accent: #2563eb;     /* primary (login) - blue 600 */
+    --accent-dark: #1e40af;/* hover/darker blue */
+    --accent-soft: #bfdbfe;/* very soft blue for subtle accents */
+    --pill-radius: 10px;
+}
 
+html,body{
+    height: 100%;
+    margin: 0;
+    font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: #0f172a;
+}
+
+/* Header */
+.header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:12px 20px;
+    background: transparent;
+}
+
+/* Main layout */
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+/* Logo column */
 .logoArea{
-    background-color:aquamarine;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width: 420px;
+    margin: 0;
 }
 .logoArea img{
-    width: 50vw;
-
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(12, 18, 26, 0.06);
 }
+
+/* Card for login form */
 .loginArea{
-    /* background-color: blue; */
-    width: 50vw;
+    width: 403px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    gap: 8px;
+    background: var(--card);
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(28, 50, 112, 0.06); /* subtle bluish shadow */
 }
-.loginArea p{
-    font-size: 26px;
-    font-weight: bold;
-    color:white;
 
-}   
+/* Form rows */
+.userName,
+.passWord {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+/* Label + input styling */
+.userName label,
+.passWord label {
+    width: 34%;
+    font-weight: 600;
+    font-size: 15px;
+    color: #0f172a;
+}
+
+.userName input,
+.passWord input,
+#userNameInput,
+#passwordInput {
+    width: 66%;
+    font-size: 16px;
+    padding: 10px 12px;
+    border: 1px solid #e6e9ee;
+    border-radius: 8px;
+    outline: none;
+    transition: box-shadow .12s ease, border-color .12s ease, background .12s ease;
+    background: #fff;
+}
+
+.userName input:focus,
+.passWord input:focus {
+    border-color: var(--accent-soft);
+    box-shadow: 0 6px 18px rgba(37,99,235,0.06);
+}
+
+/* Primary button (Login) — filled blue */
+#loginButton{
+    width: 100%;
+    height: 46px;
+    font-size: 18px;
+    border: none;
+    border-radius: var(--pill-radius);
+    background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+    color: #fff;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: transform .08s ease, filter .12s ease;
+    box-shadow: 0 6px 18px rgba(37,99,235,0.14);
+}
+
+#loginButton:hover{
+    transform: translateY(-2px);
+    filter: brightness(1.03);
+}
+
+/* Secondary button (Sign Up) — outlined but high contrast */
+#signUpButton{
+    width: 100%;
+    height: 46px;
+    font-size: 18px;
+    border-radius: var(--pill-radius);
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    transition: background .12s ease, color .12s ease, transform .08s ease, box-shadow .12s ease;
+    box-shadow: none;
+}
+
+#signUpButton:hover{
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(30,64,175,0.12);
+}
+
+/* Signup container uses same width as login card */
+.signupArea {
+    width: 403px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+/* Footer */
+.footer{
+    text-align: center;
+    padding: 24px 8px;
+    color: var(--muted);
+}
+
+/* Responsive tweaks */
 @media (max-width: 810px){
     .main{
-        justify-content: center;
+        padding: 18px;
+        gap: 16px;
     }
     .logoArea{
         display: none;
     }
-}
-.userName{
-    display: flex;
-    align-items: center;
-}
 
-.passWord{
+    .loginArea, .signupArea {
+        width: 95%;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
 
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-}
-#userNameInput{
-    font-size: 24px;
-    border: 2px solid #555;
-    border-radius: 10px;
-    margin-left: 12px;
-    height: 40px;
-    transition: 0.2s;
-}
-#userNameInput:hover{
-    background-color: lightgray;
-}
-#passwordInput{
-    font-size: 24px;
-    border: 2px solid #555;
-    border-radius: 10px;
-    margin-left: 12px;
-    height: 40px;
-    transition: 0.2s;
-}
-#passwordInput:hover{
-    background-color: lightgray;
-}
+    .userName, .passWord {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-#loginButton{
-    width: 403px;
-    height:45px;
-    font-size: 22px;
-    border: 2px solid black;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    transition: 0.2s;
-}
-#loginButton:hover{
-    background-color: lightgray;
-}
-#signUpButton{
-    width: 403px;
-    height: 45px;
-    font-size: 22px;
-    border: 2px solid black;
-    border-radius: 10px;
-    transition: 0.2s
-}
-#signUpButton:hover{
-    background-color:lightgray;
+    .userName label,
+    .passWord label {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+
+    .userName input,
+    .passWord input {
+        width: 100%;
+    }
 }

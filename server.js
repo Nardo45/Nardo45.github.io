@@ -1,92 +1,107 @@
+// server.js
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+
 const app = express();
-const port = 3000; 
-const dbURI = 'mongodb://localhost:27017/x_clone_db'; 
+const port = process.env.PORT || 3000;
+const dbURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/x_clone_db';
+const JWT_SECRET = process.env.JWT_SECRET || 'supersecretkey';
 
-// --- Database Connection --- 
-mongoose.connect(dbURI)
-    .then(() => console.log('MongoDB Connected!'))
-    .catch(err => console.log('MongoDB Connection Error:', err));
+// middleware that checks JWT (your existing middleware)
+const authMiddleware = require('./middleware/auth');
 
-// --- Middleware ---
+// connect to DB
+mongoose
+  .connect(dbURI)
+  .then(() => console.log('MongoDB Connected!'))
+  .catch((err) => console.error('MongoDB Connection Error:', err));
 
-// 1. Parse request bodies
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(express.json()); 
+// basic middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
 
-// Serve static files
-app.use(express.static(path.join(__dirname))); 
+// serve static files (css, js, img, etc.)
+app.use(express.static(path.join(__dirname)));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/script', express.static(path.join(__dirname, 'script')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/img', express.static(path.join(__dirname, 'img')));
 
-// The new script folder
-app.use('/script', express.static(path.join(__dirname, 'script'))); 
+// simple request logger for debugging clicks in terminal
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} → ${req.method} ${req.url}`);
+  next();
+});
 
-// The js folder
-app.use('/js', express.static(path.join(__dirname, 'js'))); 
+// mount auth routes (register/login/logout)
+app.use('/auth', require('./routes/auth'));
 
-// --- Routes ---
+// post routes (protected)
+app.use('/post', authMiddleware, require('./routes/post'));
 
-// The Root Route: Handles authentication check and directs to Home or Login
+// Root route: verify JWT then route appropriately
 app.get('/', (req, res) => {
-    
-    // TODO: Implement Authentication Check here
-    const isAuthenticated = false; // Currently hardcoded to false
-    
-    if (isAuthenticated) {
-        res.sendFile(path.join(__dirname, 'pages', 'homePage.html'));
-    } else {
-        res.sendFile(path.join(__dirname, 'pages', 'loginPage.html'));
-    }
+  const token = req.cookies && req.cookies.jwt;
+  if (!token) return res.redirect('/login');
+
+  try {
+    jwt.verify(token, JWT_SECRET);
+    return res.redirect('/home');
+  } catch (err) {
+    res.clearCookie('jwt');
+    return res.redirect('/login');
+  }
 });
 
-// Route for the login page
+// Protected pages (require login)
+app.get('/home', authMiddleware, (req, res) => {
+  res.render('homePage', { username: req.user.username });
+});
+
+app.get('/recommend', authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'recommendPage.html'));
+});
+app.get('/follow', authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'followPage.html'));
+});
+app.get('/notice', authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'noticePage.html'));
+});
+app.get('/message', authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'messagePage.html'));
+});
+app.get('/setting', authMiddleware, (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'settingPage.html'));
+});
+
+// Public pages
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'loginPage.html'));
+  res.sendFile(path.join(__dirname, 'pages', 'loginPage.html'));
 });
-
-// Route for the registration page (useful for linking)
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'registerPage.html'));
+  res.sendFile(path.join(__dirname, 'pages', 'registerPage.html'));
 });
 
-// Define routes for all major pages for navigation
-app.get('/home', (req, res) => {
-    // *** You should add an authentication check here later ***
-    res.sendFile(path.join(__dirname, 'pages', 'homePage.html'));
+// healthcheck (optional)
+app.get('/healthz', (req, res) => res.send('ok'));
+
+// 404 handler — logs requested URL then returns message
+app.use((req, res) => {
+  console.warn(`404: ${req.method} ${req.url}`);
+  res.status(404).send('Not found');
 });
 
-app.get('/messages', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'messagePage.html'));
-});
+// Set view engine
+app.set('view engine', 'ejs');
 
-app.get('/follow', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'followPage.html'));
-});
+// Set the folder where your templates (EJS files) live
+app.set('views', path.join(__dirname, 'pages'));
 
-app.get('/search', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'searchPage.html'));
-});
-
-app.get('/recommend', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'recommendPage.html'));
-});
-
-app.get('/notice', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'noticePage.html'));
-});
-
-app.get('/setting', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'settingPage.html'));
-});
-
-app.get('/message', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pages', 'messagePage.html'));
-});
-
-// Start the server
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-    console.log(`Open http://localhost:${port} to view the project.`);
-});
+// start
+app.listen(port, () => console.log(`Server running at http://localhost:${port}`));

@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/recommendPage.css">
-    <title>Syntax Studio Recommend Page</title>
-    <link rel="icon" type="image/x-icon" href="/img/Syntax Studio Favicon.jpg">
+    <title>Syntax Studio — Recommend</title>
+    <link rel="icon" type="image/x-icon" href="/img/syntax-studio-favicon.jpg">
 </head>
 <body>
     <div class="header">
-        <header>
-            <a class="largeWindow" href="/home">Home</a>
-            <a class="largeWindow" href="/recommend">Recommend</a>
-            <a class="largeWindow" href="/follow">Followed</a>
-            <a class="largeWindow" href="/login">Log out</a>
-            <a class="largeWindow" id="search" href="#">Search</a>
-        </header>
+        <!-- keep header simple & consistent with other pages -->
+        <a class="largeWindow" href="/home">Home</a>
+        <a class="largeWindow" href="/recommend">Recommend</a>
+        <a class="largeWindow" href="/follow">Followed</a>
+        <a class="largeWindow" href="/login">Log out</a>
+        <a class="largeWindow" id="search" href="#">Search</a>
     </div>
-    <div class="main">
-        <div class="left">
+
+    <main class="main">
+        <aside class="left">
             <a class="leftBar" href="/notice">Notice</a>
             <a class="leftBar" href="/message">Message</a>
             <a class="leftBar" href="/setting">Setting</a>
+
             <div class="leftUserArea">
-                <img src="/img/user.png" alt="userIcon" id="userIcon">
+                <img src="/img/user.png" alt="User avatar" id="userIcon">
                 <p id="userName">User name</p>
             </div>
-        </div>
-        <div class="center">
+        </aside>
+
+        <section class="center">
             <div class="content">
-                <div class="contentUserInfo">
+                <div class="profileRow">
                     <img id="contentUserImg" src="/img/user.png" alt="">
-                    <p id="contentUserName" >User name  </p>
-                    <button id="followBtn">Follow</button>
+                    <div class="profileMeta">
+                        <div id="contentUserName">User name</div>
+                        <div class="muted small">Recommended because you follow similar accounts</div>
+                    </div>
+                    <button id="followBtn" class="primary">Follow</button>
                 </div>
+
                 <div class="contentArea">
-                    <p id="recentPost">Recent post:</p>
+                    <div id="recentPost" class="sectionTitle">Recent post</div>
                     <p id="userPost">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit maiores facere nostrum. Nam unde est quod ipsam corporis quo, doloremque repudiandae minima libero harum sapiente fugit deleniti at nulla impedit.</p>
                 </div>
             </div>
-        </div>
-        <div class="right">
-        </div>
-    </div>
+        </section>
+
+        <aside class="right">
+            <!-- placeholder for suggestions or trending -->
+            <div class="rightCard">
+                <h4>Suggestions</h4>
+                <p class="small muted">People you may want to follow</p>
+                <div class="suggestion">
+                    <img src="/img/user.png" alt="">
+                    <div class="suggestionMeta">
+                        <div class="name">Suggested User</div>
+                        <div class="small muted">@suggested</div>
+                    </div>
+                    <button class="secondary">Follow</button>
+                </div>
+            </div>
+        </aside>
+    </main>
 
     <footer class="footer">
         <p>Copyright&nbsp;&copy;&nbsp;Syntax Studio 2025</p>
     </footer>
 </body>
-</htem>
+</html>
